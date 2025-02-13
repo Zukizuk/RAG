@@ -23,11 +23,9 @@ if prompt:
     
     with st.chat_message("user"):
         st.markdown(prompt)
-
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        
         try:
             streaming_response = get_streaming_response(prompt)
             
