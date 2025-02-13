@@ -32,7 +32,7 @@ else:
 
 query_engine = index.as_query_engine(streaming=True, similarity_top_k=1)
 streaming_response = query_engine.query("Who is Chris?") 
+streaming_response.print_response_stream()
 # for text in streaming_response.response_gen:
 #     # do something with text as they arrive.
 #     print(text)
-streaming_response.print_response_stream()
