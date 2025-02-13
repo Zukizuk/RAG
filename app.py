@@ -2,7 +2,10 @@ import streamlit as st
 from ai import get_streaming_response
 
 st.set_page_config(page_title="RAG AI", layout="centered")
-st.sidebar.title("RAG AI")
+with st.sidebar:
+    st.sidebar.markdown("<h2 style='text-align: center; color: white;'>ChatRAGI</h2>", unsafe_allow_html=True)
+    history, settings, about = st.tabs(["📕 Chat History", "⚙️ Settings", "📝 About"])
+
 
 st.markdown("<h1 style='text-align: center; color: white;'>Welcome to ChatRAGI</h1>", unsafe_allow_html=True)
 
@@ -13,7 +16,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-prompt = st.chat_input("What is up?")
+prompt = st.chat_input("Message ChatRAGI")
 
 if prompt:
     st.session_state.messages.append({"role": "user", "content": prompt})

@@ -1,0 +1,12 @@
+[
+  { "role": "user", "content": "Hey " },
+  {
+    "role": "assistant",
+    "content": "I am sorry, but the context does not contain an answer to your question.\n"
+  },
+  { "role": "user", "content": "But I didn't ask any question" },
+  {
+    "role": "assistant",
+    "content": "Okay, I understand. You didn't ask a question, so I have nothing to answer.\n"
+  }
+]
