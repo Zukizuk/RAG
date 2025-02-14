@@ -2,9 +2,7 @@ from llama_index.embeddings.gemini import GeminiEmbedding
 from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, load_index_from_storage
 from llama_index.core import StorageContext, Settings
 from llama_index.llms.gemini import Gemini
-# from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.core.prompts import PromptTemplate
-# import chromadb
 import os
 from dotenv import load_dotenv
 
@@ -39,9 +37,6 @@ gemini_embedding = GeminiEmbedding()
 Settings.llm = llm
 Settings.embed_model = gemini_embedding
 Settings.chunk_size = 1000
-
-# Initialize ChromaDB
-# db = chromadb.PersistentClient(path=PERSIST_DIR)
 
 
 if not os.path.exists(PERSIST_DIR):
