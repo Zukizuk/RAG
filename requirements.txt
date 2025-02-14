@@ -1,0 +1,8 @@
+chromadb
+ipython
+llama-index
+llama-index-embeddings-gemini
+llama-index-llms-gemini
+llama-index-vector-stores-chroma
+python-dotenv
+streamlit
