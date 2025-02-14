@@ -13,5 +13,4 @@ dependencies = [
     "llama-index-vector-stores-chroma>=0.4.1",
     "python-dotenv>=1.0.1",
     "streamlit>=1.42.0",
-    "chroma-hnswlib==0.7.3",
 ]

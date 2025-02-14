@@ -1,17 +1,17 @@
 from llama_index.embeddings.gemini import GeminiEmbedding
-from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
+from llama_index.core import SimpleDirectoryReader, VectorStoreIndex, load_index_from_storage
 from llama_index.core import StorageContext, Settings
 from llama_index.llms.gemini import Gemini
-from llama_index.vector_stores.chroma import ChromaVectorStore
+# from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.core.prompts import PromptTemplate
-import chromadb
+# import chromadb
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-PERSIST_DIR = "./chroma_db"
+PERSIST_DIR = "./storage"
 
 # Create text QA template
 text_qa_template = PromptTemplate(
@@ -41,25 +41,17 @@ Settings.embed_model = gemini_embedding
 Settings.chunk_size = 1000
 
 # Initialize ChromaDB
-db = chromadb.PersistentClient(path=PERSIST_DIR)
-chroma_collection = db.get_or_create_collection("my_collection")
-vector_store = ChromaVectorStore(chroma_collection=chroma_collection)
-storage_context = StorageContext.from_defaults(vector_store=vector_store)
+# db = chromadb.PersistentClient(path=PERSIST_DIR)
 
-# Check if we need to create a new index or load existing one
-if not os.path.exists(PERSIST_DIR) or len(chroma_collection.get()['ids']) == 0:
-    # Load documents and create index
-    documents = SimpleDirectoryReader("data/").load_data()
-    index = VectorStoreIndex.from_documents(
-        documents,
-        storage_context=storage_context
-    )
+
+if not os.path.exists(PERSIST_DIR):
+  documents = SimpleDirectoryReader("data/").load_data()
+  index = VectorStoreIndex.from_documents(documents)
+  index.storage_context.persist(persist_dir=PERSIST_DIR)
 else:
-    # Load existing index
-    index = VectorStoreIndex.from_vector_store(
-        vector_store,
-        storage_context=storage_context
-    )
+  storage_context = StorageContext.from_defaults(persist_dir=PERSIST_DIR)
+  index = load_index_from_storage(storage_context)
+
 
 def get_response(text) -> str:
     """
