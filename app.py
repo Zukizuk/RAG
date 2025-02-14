@@ -2,9 +2,9 @@ import streamlit as st
 from ai import get_streaming_response
 
 st.set_page_config(page_title="RAG AI", layout="centered")
-with st.sidebar:
-    st.sidebar.markdown("<h2 style='text-align: center; color: white;'>ChatRAGI</h2>", unsafe_allow_html=True)
-    history, settings, about = st.tabs(["📕 Chat History", "⚙️ Settings", "📝 About"])
+# with st.sidebar:
+#     st.sidebar.markdown("<h2 style='text-align: center; color: white;'>ChatRAGI</h2>", unsafe_allow_html=True)
+#     history, settings, about = st.tabs(["📕 Chat History", "⚙️ Settings", "📝 About"])
 
 
 st.markdown("<h1 style='text-align: center; color: white;'>Welcome to ChatRAGI</h1>", unsafe_allow_html=True)
