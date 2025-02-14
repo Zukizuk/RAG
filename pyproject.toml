@@ -5,7 +5,6 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "chromadb>=0.6.3",
     "ipython>=8.32.0",
     "llama-index>=0.12.16",
     "llama-index-embeddings-gemini>=0.3.1",
