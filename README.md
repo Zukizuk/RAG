@@ -17,7 +17,7 @@ This project uses [UV](https://github.com/astral-sh/uv) as the package manager.
 ### 1️⃣ Clone the Repository
 
 ```sh
-git clone https://github.com/your-username/ChatRAGI.git
+git clone https://github.com/Zukizuk/RAG.git
 cd ChatRAGI
 ```
 
