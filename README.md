@@ -1,6 +1,6 @@
 # ChatRAGI
 
-ChatRAGI is an AI-powered chatbot that leverages **Retrieval-Augmented Generation (RAG)** to provide insightful and context-aware responses. Built with **LlamaIndex**, **Gemini AI**, and **Streamlit**, this application efficiently retrieves relevant information from a local dataset and generates intelligent responses.
+ChatRAGI is an AI-powered chatbot that leverages **Retrieval-Augmented Generation (RAG)** to provide insightful and context-aware responses. Built with **LlamaIndex**, **Gemini AI**, and **Streamlit**, this application efficiently retrieves relevant information from a local dataset and generates intelligent responses. Check it out here [Link](https://zuki-rag.streamlit.app/)
 
 ## 🚀 Features
 
